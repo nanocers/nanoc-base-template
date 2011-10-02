@@ -15,6 +15,7 @@ GEM
       multi_json (~> 1.0)
     jsmin (1.0.1)
     kramdown (0.13.3)
+    mime-types (1.16)
     multi_json (1.0.3)
     nanoc (3.1.7)
       nanoc3 (>= 3.1.7)
@@ -39,6 +40,7 @@ DEPENDENCIES
   deadweight (~> 0.2)
   jsmin (~> 1.0)
   kramdown (~> 0.13)
+  mime-types
   nanoc (~> 3.1)
   nanoc-cachebuster
   rack (~> 1.2)
