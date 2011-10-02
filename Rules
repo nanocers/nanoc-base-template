@@ -59,7 +59,7 @@ compile '/sitemap/', :rep => 'gzip' do
 end
 
 compile '*' do
-  filter :erb
+  filter :haml
   filter :kramdown if item[:extension] == 'md'
   filter :typogruby
   layout 'default'
@@ -96,5 +96,4 @@ route '*' do
   item.identifier.chop + '.html'
 end
 
-layout '*', :erb
-
+layout '*', :haml
