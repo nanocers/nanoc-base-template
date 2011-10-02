@@ -43,6 +43,8 @@ class ConcatFilter < Nanoc3::Filter
 
     return unless File.exists? path
 
+    puts "found #{path}"
+
     File.read(path)
   end
 end
