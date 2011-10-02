@@ -44,7 +44,7 @@ end
 compile '*' do
   puts item.inspect
   case item[:extension]
-    when 'png', 'jpg', 'jpeg', 'js'
+    when 'png', 'jpg', 'jpeg', 'js', 'ico'
     when 'md'
       filter :kramdown
     else
