@@ -76,7 +76,7 @@ route %r{^/(assets/.*|sitemap|robots|atom)/$} do
 end
 
 route '*' do
-  item.identifier.chop + '.html'
+  item.identifier + 'index.html'
 end
 
 layout '*', :haml
