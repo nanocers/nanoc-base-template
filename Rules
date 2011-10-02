@@ -42,11 +42,14 @@ compile '/sitemap/', :rep => 'gzip' do
 end
 
 compile '*' do
+  puts item.inspect
   case item[:extension]
     when 'png', 'jpg', 'jpeg', 'js'
+    when 'md'
+      filter :kramdown
     else
+      puts "compiling #{item.inspect}"
       filter :haml
-      filter :kramdown if item[:extension] == 'md'
       filter :typogruby
       layout 'default'
       filter :cache_buster
