@@ -6,11 +6,12 @@ require 'jsmin'
 class MinifyFilter < Nanoc3::Filter
   identifier :minify
   def run(content, args = {})
+    puts @item[:extension]
     case @item[:extension]
-    when 'css' then Rainpress.compress(content)
-    when 'js' then JSMin.minify(content)
-    else
-      content
-    end
+      when 'css', 'sass'    then puts "rainpress"; Rainpress.compress(content)
+      when 'js', 'coffee'   then puts "jsmin"; JSMin.minify(content)
+      else
+        content
+      end
   end
 end
