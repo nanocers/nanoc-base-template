@@ -7,7 +7,7 @@ preprocess do
 end
 
 # The base javascript and stylesheet files
-compile %r{/assets/(lib|styles)/} do
+compile %r{/assets/(js|styles)/} do
   # Use erb to enable timestamps and author information and such.
   filter :erb
   filter :concat
