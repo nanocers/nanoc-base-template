@@ -42,14 +42,18 @@ compile '/sitemap/', :rep => 'gzip' do
 end
 
 compile '*' do
-  filter :haml
-  filter :kramdown if item[:extension] == 'md'
-  filter :typogruby
-  layout 'default'
-  filter :cache_buster
+  case item[:extension]
+    when 'png', 'jpg', 'jpeg', 'js'
+    else
+      filter :haml
+      filter :kramdown if item[:extension] == 'md'
+      filter :typogruby
+      layout 'default'
+      filter :cache_buster
+  end
 end
 
-# Don't inlcude any library files, as they should be included in the
+# Don't include any library files, as they should be included in the
 # manifest files (lib.js, styles.css)
 route '/assets/lib/*/' do
 end
@@ -76,7 +80,12 @@ route %r{^/(assets/.*|sitemap|robots|atom)/$} do
 end
 
 route '*' do
-  item.identifier + 'index.html'
+  case item[:extension]
+    when 'png', 'jpg', 'jpeg', 'js'
+      item.identifier.chop + '.' + item[:extension]
+    else
+      item.identifier + 'index.html'
+  end
 end
 
 layout '*', :haml
