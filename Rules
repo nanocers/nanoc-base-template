@@ -1,23 +1,5 @@
 #!/usr/bin/env ruby
 
-# A few helpful tips about the Rules file:
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
-# The preprocess block is used to generate dynamic pages, like archives,
-# tag pages and meta-pages that are simple to generate, like the sitemap
-# or feed.
-#
-# Simply create a new item, add it to the @items stack and you're set.
-# Note: the preprocess block has no item context, so you cannot just call
-# xml_sitemap or atom_feed directly. Instead, embed it in a string and filter
-# that with erb.
 preprocess do
   create_robots_txt
   create_webmaster_tools_authentications
@@ -29,8 +11,9 @@ compile %r{/assets/(lib|styles)/} do
   # Use erb to enable timestamps and author information and such.
   filter :erb
   filter :concat
-  filter :coffeescript if item[:extension] == 'coffee'
-  filter :sass, :syntax => :scss if item[:extension] == 'scss'
+  filter :coffeescript            if item[:extension] == 'coffee'
+  filter :sass, :syntax => :scss  if item[:extension] == 'scss'
+  filter :sass, :syntax => :sass  if item[:extension] == 'sass'
   filter :cache_buster
   filter :minify
 end
@@ -85,8 +68,8 @@ end
 
 route %r{^/(assets/.*|sitemap|robots|atom)/$} do
   ext = item[:extension]
-  ext = 'js' if ext == 'coffee'
-  ext = 'css' if ext == 'scss'
+  ext = 'js'  if ext == 'coffee'
+  ext = 'css' if ['scss', 'sass'].include? ext
 
   fp = cachebust?(item) ? fingerprint(item[:filename]) : ''
   item.identifier.chop + fp + '.' + ext

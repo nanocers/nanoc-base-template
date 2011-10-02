@@ -25,12 +25,14 @@ class ConcatFilter < Nanoc3::Filter
   identifier :concat
 
   def run(content, args = {})
-    content.gsub(%r{^\s*(?:(?://|#) require |@import url)\(?([a-zA-Z0-9_\-\.]+)(?:\);)?$}) do |m|
+    # puts "looking at #{content.to_a[0..1].join("\n")}"
+    content.gsub(%r{^\s*(?:(?://|#) require |@import url)\(?([a-zA-Z0-9_\-\.]+)(?:\);?)?$}) do |m|
+      puts "loading #{$1}"
       load_file($1) || m
     end
   end
 
-private
+  private
 
   def load_file(filename)
     path = File.join(File.dirname(item[:content_filename]), filename)
