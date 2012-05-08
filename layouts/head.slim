@@ -1,0 +1,10 @@
+meta charset="utf-8"
+
+link rel="shortcut icon" type="image/ico" href="/favicon.ico"
+link rel='stylesheet'                    href="/assets/css/site.css"
+
+= @item[:content_for_head]
+
+title
+  = (@item[:title].to_s + '-') if @item[:title]
+  = @site.config[:meta_data][:title]

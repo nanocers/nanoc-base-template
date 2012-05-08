@@ -13,7 +13,7 @@ GEM
       nokogiri
     execjs (1.2.9)
       multi_json (~> 1.0)
-    haml (3.1.3)
+    haml (3.1.4)
     jsmin (1.0.1)
     kramdown (0.13.3)
     mime-types (1.16)
@@ -28,6 +28,11 @@ GEM
     rainpress (1.0)
     rubypants (0.2.0)
     sass (3.1.8)
+    slim (1.1.0)
+      temple (~> 0.3.5)
+      tilt (~> 1.3.2)
+    temple (0.3.5)
+    tilt (1.3.3)
     typogruby (1.0.13)
       rubypants
 
@@ -48,4 +53,5 @@ DEPENDENCIES
   rack (~> 1.2)
   rainpress (~> 1.0)
   sass (~> 3.1)
+  slim
   typogruby (~> 1.0)
