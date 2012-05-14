@@ -7,10 +7,7 @@
 .galleria-container {
     position: relative;
     overflow: hidden;
-    border: 1px #999 solid;
-    border-radius: 8px;
-   -moz-border-radius: 8px;
-   -webkit-border-radius: 8px;
+    background: #000;
 }
 .galleria-container img {
     -moz-user-select: none;

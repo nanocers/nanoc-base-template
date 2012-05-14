@@ -25,21 +25,27 @@ class ConcatFilter < Nanoc3::Filter
   identifier :concat
 
   def run(content, args = {})
-    # puts "looking at #{content.to_a[0..1].join("\n")}"
-    content.gsub(%r{^\s*(?:(?://|#) require |@import url)\(?([a-zA-Z0-9_\-\.]+)(?:\);?)?$}) do |m|
+    puts "looking at #{content}"
+    content.gsub(%r{^\s*(?:(?:(?://|#) require\s*|import url))\(?([a-zA-Z0-9_\/\-\.]+)(?:\);?)?$}) do |m|
       puts "loading #{$1}"
       load_file($1) || m
     end
+    #content.gsub(%r{^\s*import url\(?([a-zA-Z0-9_\-\.]+)(?:\);?)?$}) do |m|
+    #  puts "loading #{$1}"
+    #  load_file($1) || m
+    #end
   end
 
   private
 
   def load_file(filename)
     path = File.join(File.dirname(item[:content_filename]), filename)
+    puts "path: #{path}"
 
     unless File.exists? path
       path = File.join(File.dirname(__FILE__), '..', 'vendor', filename)
     end
+    puts "path: #{path}"
 
     return unless File.exists? path
 

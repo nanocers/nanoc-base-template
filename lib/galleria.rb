@@ -1,16 +1,30 @@
 require 'json'
 
-def galleria(html_id, images_dir, out_dir = '')
-	ret="""
+@@gallery_count = 0
+
+def gallery(name)
+  @@gallery_count += 1
+
+  html_id = "gallery_#{@@gallery_count}_#{name}"
+  images_dir = "content/galleries/#{name}"
+  out_dir = "galleries/#{name}/"
+
+  _galleria(html_id, images_dir, out_dir)
+end
+
+def _galleria(html_id, images_dir, out_dir = '')
+	"""
 		<div id='#{html_id}'></div>
 
 		<script>
-			Galleria.loadTheme('galleria/themes/classic/galleria-classic-js-min.js');
-			var data = #{galleria_json_array(images_dir,out_dir)};
-			$('##{html_id}').galleria({	
-					data_source: data,
-					height:300
-			});
+      $(function() {
+        Galleria.loadTheme('/static/galleria-themes/classic/galleria-classic.js');
+        var data = #{galleria_json_array(images_dir,out_dir)};
+        $('##{html_id}').galleria({
+            data_source: data,
+            height:300
+        });
+      });
 		</script>
 	"""
 end

@@ -5,17 +5,30 @@ preprocess do
   create_sitemap
 end
 
+compile '/static/*' do
+puts "compile #{item}"
+end
+
+route '/static/*' do
+  puts "route #{item}"
+
+  item.identifier.chop + '.' + item[:extension]
+end
+
+
 # The base javascript and stylesheet files
-compile %r{/assets/(js|css)/} do
+compile %r{/assets/} do
   # Use erb to enable timestamps and author information and such.
-  unless item[:filename].include?('_')
+  ext = item[:extension]
+  #puts item[:content_filename]
+  unless item[:filename].include?('_') or item[:content_filename].include?('vendor')
     filter :erb
-    filter :concat
-    filter :coffeescript            if item[:extension] == 'coffee'
-    filter :sass, :syntax => :scss  if item[:extension] == 'scss'
-    filter :sass, :syntax => :sass  if item[:extension] == 'sass'
+    filter :coffeescript            if ext == 'coffee'
+    filter :sass, :syntax => :scss  if ext == 'scss'
+    filter :sass, :syntax => :sass  if ext == 'sass'
+    filter :concat unless %W(sass scss).include?(ext)
     filter :cache_buster
-    filter :minify
+    #filter :minify
   end
 end
 
@@ -43,14 +56,14 @@ compile '/sitemap/', :rep => 'gzip' do
 end
 
 compile '*' do
-  puts item.inspect
+  #puts item.inspect
 
   case item[:extension]
     when 'png', 'jpg', 'jpeg', 'js', 'ico'
     when 'md'
       filter :kramdown
     when 'slim'
-      puts "compiling #{item.inspect}"
+      #puts "compiling #{item.inspect}"
       filter :slim
       filter :typogruby
       layout 'default'
@@ -60,7 +73,7 @@ end
 
 # Don't include any library files, as they should be included in the
 # manifest files (lib.js, styles.css)
-route '/assets/lib/*/' do
+route '/assets/vendor/*/' do
 end
 
 route '/' do
