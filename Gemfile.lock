@@ -15,6 +15,7 @@ GEM
       multi_json (~> 1.0)
     haml (3.1.4)
     jsmin (1.0.1)
+    json (1.6.6)
     kramdown (0.13.3)
     mime-types (1.16)
     multi_json (1.0.3)
@@ -46,6 +47,7 @@ DEPENDENCIES
   deadweight (~> 0.2)
   haml
   jsmin (~> 1.0)
+  json
   kramdown (~> 0.13)
   mime-types
   nanoc (~> 3.1)
