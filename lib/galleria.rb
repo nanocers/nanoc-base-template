@@ -6,7 +6,7 @@ def gallery(name)
   @@gallery_count += 1
 
   html_id = "gallery_#{@@gallery_count}_#{name}"
-  images_dir = "content/galleries/#{name}"
+  images_dir = "content/assets/images/galleries/#{name}"
   out_dir = "galleries/#{name}/"
 
   _galleria(html_id, images_dir, out_dir)

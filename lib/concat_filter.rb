@@ -25,9 +25,9 @@ class ConcatFilter < Nanoc3::Filter
   identifier :concat
 
   def run(content, args = {})
-    puts "looking at #{content}"
+    #puts "looking at #{content}"
     content.gsub(%r{^\s*(?:(?:(?://|#) require\s*|import url))\(?([a-zA-Z0-9_\/\-\.]+)(?:\);?)?$}) do |m|
-      puts "loading #{$1}"
+      #puts "loading #{$1}"
       load_file($1) || m
     end
     #content.gsub(%r{^\s*import url\(?([a-zA-Z0-9_\-\.]+)(?:\);?)?$}) do |m|

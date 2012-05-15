@@ -11,14 +11,25 @@ end
 
 route '/static/*' do
   puts "route #{item}"
-
   item.identifier.chop + '.' + item[:extension]
 end
 
+route '/assets/vendor/*' do
+end
+compile '/assets/vendor/*' do
+end
+
+route '/assets/images/*' do
+  item.identifier.chop + '.' + item[:extension]
+end
+compile '/assets/images/*' do
+end
 
 # The base javascript and stylesheet files
-compile %r{/assets/} do
+compile %r{/assets/(lib|script|styles)*} do
   # Use erb to enable timestamps and author information and such.
+  puts "1>>>>"
+  puts item.inspect
   ext = item[:extension]
   #puts item[:content_filename]
   unless item[:filename].include?('_') or item[:content_filename].include?('vendor')
@@ -73,7 +84,7 @@ end
 
 # Don't include any library files, as they should be included in the
 # manifest files (lib.js, styles.css)
-route '/assets/vendor/*/' do
+route %r{'/assets/vendor/*.css'} do
 end
 
 route '/' do
