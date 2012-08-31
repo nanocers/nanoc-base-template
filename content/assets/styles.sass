@@ -1,9 +1,68 @@
 @import 'vendor/awesome-showcase/css/style'
 @import 'vendor/twitter/bootstrap'
 
+$spc: 10px
+$font-size-big: 14px
+
+$gray: #a9a9a9
+$darkgray: #666
+// layout
+//.container
+//  width:  930px
+
+#nav
+  height: 134px
+  position: relative
+  & > *
+    position: absolute
+
+  #logo
+    top: $spc
+    left: -60px
+  #menu
+    bottom: $spc
+    left: 0
+    a
+      font-size: $font-size-big
+      padding: 0 25px 0 25px
+      color: $black
+      &:hover
+        //border-bottom: 1px solid $darkgray
+        color: $gray
+        text-decoration: none
+  #tagline
+    right: $spc
+    top: $spc
+  #social
+    background: url("images/social.png")
+    width: 105px
+    height: 40px
+    right: 0
+    bottom: 0
+
+#footer
+  border-top: $gray solid 1px
+  margin-top: $spc
+  margim-bottom: $spc
+  padding: $spc
+  #copyright
+    float: left
+  #footer-menu
+    float: right
+    a
+
+      color: $darkgray
+      padding-left: 40px
+//highlight the menu items
+@each $page in index, home, gshop, dtmh, lgbtq, blog, about, retailers
+  body.#{$page}
+    #menu a.#{$page}
+      //border-bottom: 1px solid $darkgray
+      color: $gray
 .aw_showcase
   position: relative
   margin: auto
   .showcase-image, .showcase-width
     max-width: 100%
     height: auto
+

@@ -1,20 +1,10 @@
 html lang="en"
   head
     == render 'head'
-  body
-    .navbar
-      .navbar-inner
-        .container
-          a.brand href="#" = @site.config[:meta_data][:title]
-          ul.nav
-            li
-              a href="#" Home
-            li
-              a href="#about" About
-            li
-              a href="#contact" Contact
+  body class='#{item[:name]}'
+    == render 'top'
 
-    .container
+    #main.container
       == yield
 
     == render 'foot'
