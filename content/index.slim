@@ -1,27 +1,36 @@
-.hero-unit
-  h1 Nanoc, yeah
-
-  .aw_showcase
-    == aw_image_slide('/assets/images/galleries/demo/1.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/2.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/3.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/4.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/5.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/6.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/7.jpg', 'soos')
-    == aw_image_slide('/assets/images/galleries/demo/8.jpg', 'soos')
-
-  p
-  p
-  p This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.
-  p
-    a.btn.btn-primary.btn-large Learn more »
+.row.aw_showcase
+  == aw_gng_slide( '/assets/images/galleries/promo/1.png', 'DTMH: Find yourself!', 'Do you love your hair? Of course! With DTMH t-shirts and accessories you can send a message without having to say a single word. Wear your hair-love and your self-love confidently! ', '#', 'SHOP NOW ' )
+  == aw_image_slide('/assets/images/galleries/promo/1.png', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/2.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/3.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/4.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/5.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/6.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/7.jpg', 'soos')
+  == aw_image_slide('/assets/images/galleries/demo/8.jpg', 'soos')
 
 .row
-  .span6
-    p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta euismod imperdiet. Nulla facilisi. Donec lorem mi, aliquam eu vulputate in, rutrum nec metus. Mauris tellus metus, varius eget fermentum at, suscipit eu purus. Curabitur eget lorem augue, eget suscipit ipsum. Nunc interdum consequat ligula sed luctus. Etiam libero risus, porttitor eu pellentesque sit amet, pulvinar in libero. Etiam eros ipsum, ultrices id posuere et, pellentesque vitae neque. Ut quis tortor ac metus volutpat elementum vel vitae neque. Etiam egestas ornare tellus, eget pulvinar arcu vulputate semper. Donec vitae sapien a nunc semper ultricies.
+  .span4
+    .box
+      div.box-name  NEWS
+      div.box-title Gabby Douglas
+      img.box-img src='/assets/images/news.png'
+      div.box-text After winning two gold medals in women's artistic gymnastics in London for the 2012 Summer Olympic...
+      a.box-link href='' READ MORE
 
-  .span6
-    p Etiam turpis neque, tincidunt eu vehicula id, luctus ut nunc. Etiam pellentesque tincidunt enim tincidunt euismod. Integer eu eros at sapien vulputate tincidunt. Proin pretium dictum nisi, vitae tincidunt diam lacinia eget. Integer ultrices lorem eu mi ultrices non posuere enim ultrices. Donec imperdiet dolor sed velit vehicula pretium ac sit amet neque. Donec consequat sapien at justo convallis porta. Sed luctus purus nec lacus porttitor a ullamcorper massa volutpat. Aenean ac tortor lorem. Phasellus vehicula suscipit ante eu molestie. Integer est erat, fermentum sed ultricies id, vulputate eu diam. Duis augue justo, vulputate sed rhoncus tempus, placerat eget urna. Maecenas congue dolor non est elementum facilisis. Pellentesque volutpat neque nec dolor commodo suscipit feugiat mi viverra. Ut tortor turpis, commodo eget molestie quis, dictum molestie quam.
+  .span4
+    .box
+      div.box-name FEATURED
+      div.box-title Festival Against Racism
+      img.box-img src='/assets/images/featured.png'
+      div.box-text From August 17 through August 19, Berlin hosted its first Festival Againt Racism (Festival ...
+      a.box-link href='' READ MORE
 
-div Donec laoreet vulputate mattis. Aliquam congue mattis velit sit amet malesuada. In hac habitasse platea dictumst. Sed viverra laoreet nisl in adipiscing. Fusce a leo augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Etiam vehicula ultricies interdum. Aliquam turpis metus, auctor at egestas ac, lacinia eu risus. Nullam a massa vitae metus accumsan tincidunt varius posuere leo. Fusce id neque leo, a tempus diam. Nunc fringilla neque quis justo rhoncus fermentum sed eu elit. Donec aliquam neque nec felis lacinia at sodales nisl auctor. Proin sed dolor mauris. Donec non velit augue, vitae venenatis justo. Praesent sit amet dolor lacus, a accumsan diam.
+  .span4
+    .box
+      div.box-name ISSUES
+      div.box-title Tax law for same-sex partnerships
+      img.box-img src='/assets/images/issues.png'
+      div.box-text The majority of Germans are for a change in tax law for same-sex partnerships...
+
+      a.box-link href='' READ MORE

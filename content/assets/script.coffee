@@ -1,9 +1,9 @@
 $ ->
   console.log 'hello world'
   $(".aw_showcase").awShowcase
-    content_width:			700
-    content_height:			470
-    fit_to_parent:			false
+    content_width:			960
+    content_height:			370
+    fit_to_parent:			true
     auto:					false
     interval:				3000
     continuous:				false
@@ -15,7 +15,7 @@ $ ->
     tooltip_offsety:		0
     arrows:					true
     buttons:				true
-    btn_numbers:			true
+    btn_numbers:			false
     keybord_keys:			true
     mousetrace:				false # Trace x and y coordinates for the mouse */
     pauseonover:			true

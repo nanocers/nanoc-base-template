@@ -44,3 +44,20 @@ def aw_slide(content, caption)
     </div>
   """%[content,caption]
 end
+
+def aw_gng_slide(src, title, text, link_href, link_text)
+  """
+    <div class='showcase-slide'>
+        <div class='showcase-content'>
+            <div class='showcase-content-wrapper'>
+                <img class='showcase-image' src='#{src}'></img>
+            </div>
+        </div>
+        <div class='showcase-caption'>
+            <h1 class='showcase-caption-title'> #{title} </h1>
+            <div class='showcase-caption-text'> #{text} </div>
+            <a class='showcase-caption-link' href='#{link_href}'> #{link_text} </a>
+        </div>
+    </div>
+  """
+end

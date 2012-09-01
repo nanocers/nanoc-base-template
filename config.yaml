@@ -10,22 +10,22 @@ output_dir: output
 
 meta_data:
   # Default title, that is added to an item's own title
-  title: Untitled website
+  title: GNG
 
   # Default author of a page
-  author: Arjan van der Gaag
+  author: ''
 
   # E-mail address used in contact information, etc.
-  author_email: arjan@arjanvandergaag.nl
+  author_email: ''
 
   # Default keywords to use when an item does not specify its own
-  keywords: 'keyword1, keyword2'
+  keywords: ''
 
   # Default description to use when an item does not specify its own
   description: Undescribed website.
 
   # Copyright line used in the document header meta tag.
-  copyright: "© copyright 2010 Arjan van der Gaag. All rights reserved."
+  copyright: ""
 
   # Tracking code for Google Analytics. Specifying this will include the
   # tracking code in your site's head section.
@@ -36,7 +36,7 @@ meta_data:
 
 # The base URL for the website, for use in sitemaps etc. Something like
 # http://domain.tld
-base_url: http://domain.tld
+base_url: http://grahamngraham.com/
 
 # The path on the base URL users should be sent to when accessing the feed.
 # This gets rewritten to point at your feedburner_url option, which will

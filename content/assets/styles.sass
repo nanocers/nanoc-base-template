@@ -2,14 +2,21 @@
 @import 'vendor/twitter/bootstrap'
 
 $spc: 10px
-$font-size-big: 14px
+$spc2: 25px
+$font-size-medium: 14px
+$font-size-big: 18px
 
 $gray: #a9a9a9
 $darkgray: #666
-// layout
-//.container
-//  width:  930px
 
+// BASE
+a
+  text-decoration: capitalize
+  color: black
+  &:hover
+    color: black
+
+// layout
 #nav
   height: 134px
   position: relative
@@ -23,8 +30,8 @@ $darkgray: #666
     bottom: $spc
     left: 0
     a
-      font-size: $font-size-big
-      padding: 0 25px 0 25px
+      font-size: $font-size-medium
+      padding: 0 $spc2 0 $spc2
       color: $black
       &:hover
         //border-bottom: 1px solid $darkgray
@@ -39,6 +46,57 @@ $darkgray: #666
     height: 40px
     right: 0
     bottom: 0
+
+#main
+  border-top: 1px #b3b3b3 solid
+
+//modules
+
+.aw_showcase
+  margin-bottom: $spc2
+.showcase-arrow-previous, .showcase-arrow-next
+  top: 170px
+.showcase-caption
+  background-image: none
+  top: 40px
+  right: 55px
+  left: auto
+  bottom: auto
+  width: 230px
+  height: 230px
+  padding: 0
+  margin: 0
+  .showcase-caption-title
+    font-size: 34px
+    line-height: 34px
+    font-weight: lighter
+
+.box
+  padding: $spc
+  div.box-name
+    background-image: url("images/hr.png")
+    background-repeat: no-repeat
+    background-position: bottom left
+    line-height: 30px
+    height: 30px
+    color: $gray
+    margin-bottom: $spc
+
+  div.box-title
+    font-size: $font-size-big
+    padding: 0 0 $spc2 0
+    color: $black
+
+
+  img.box-img
+    width: 150px
+    height: 150px
+    float: left
+  div.box-text
+    padding-left: 150px + $spc
+  a.box-link
+    padding-left: 150px + $spc
+
 
 #footer
   border-top: $gray solid 1px
@@ -59,6 +117,7 @@ $darkgray: #666
     #menu a.#{$page}
       //border-bottom: 1px solid $darkgray
       color: $gray
+
 .aw_showcase
   position: relative
   margin: auto
