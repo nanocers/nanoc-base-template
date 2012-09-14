@@ -13,8 +13,21 @@ $darkgray: #666
 a
   text-decoration: capitalize
   color: black
+  letter-spacing: 1px
   &:hover
     color: black
+
+.caps
+  text-transform: uppercase
+  font-size: 85%
+  letter-spacing: 1px
+
+a .caps
+  font-size: 100% !important
+
+.amp
+  font-family: "Goudy Old Style"
+  font-style: italic
 
 // layout
 #nav
@@ -41,11 +54,23 @@ a
     right: $spc
     top: $spc
   #social
-    background: url("images/social.png")
+    background: url("images/social.png") black
     width: 105px
     height: 40px
     right: 0
     bottom: 0
+
+    a
+      display: inline-block
+      height:  40px
+      &.twitter
+        width: 53px
+        &:hover
+          background-color: #db7093
+      &.facebook
+        width: 52px
+        &:hover
+          background-color: #4682b4
 
 #main
   border-top: 1px #b3b3b3 solid
@@ -53,7 +78,7 @@ a
 //modules
 
 .aw_showcase
-  margin-bottom: $spc2
+  margin-bottom: $spc2 !important
 .showcase-arrow-previous, .showcase-arrow-next
   top: 170px
 .showcase-caption
@@ -72,7 +97,6 @@ a
     font-weight: lighter
 
 .box
-  padding: $spc
   div.box-name
     background-image: url("images/hr.png")
     background-repeat: no-repeat
@@ -93,9 +117,13 @@ a
     height: 150px
     float: left
   div.box-text
-    padding-left: 150px + $spc
-  a.box-link
-    padding-left: 150px + $spc
+    position: relative
+    height: 150px
+    margin-left: 150px + $spc
+    a.box-link
+      position: absolute
+      bottom: 0
+      left:   0
 
 
 #footer
